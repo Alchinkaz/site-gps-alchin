@@ -86,7 +86,7 @@ export function ContactSection() {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="example@mail.ru"
+                      placeholder="info@alchin.kz"
                     />
                   </div>
 
