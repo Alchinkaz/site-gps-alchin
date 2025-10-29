@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Navigation } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,10 +36,13 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-2 text-xl font-bold">
-            <Navigation className="h-6 w-6 text-accent" />
-            <span className="text-foreground">GPS Мониторинг</span>
-          </a>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a href="#" className="flex items-center gap-2 text-xl font-bold">
+              <Navigation className="h-6 w-6 text-accent" />
+              <span className="text-foreground">GPS Мониторинг</span>
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -54,9 +58,6 @@ export function Navbar() {
             <Button asChild size="sm">
               <a href="#contact">Получить консультацию</a>
             </Button>
-            <a href="/admin" className="inline-flex items-center justify-center h-8 px-3 py-2 rounded-md text-sm font-medium bg-yellow-400 text-black hover:bg-yellow-500 transition-colors">
-              Личный кабинет
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,9 +89,6 @@ export function Navbar() {
                   Получить консультацию
                 </a>
               </Button>
-              <a href="/admin" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center w-full h-10 px-3 py-2 rounded-md text-sm font-medium bg-yellow-400 text-black hover:bg-yellow-500 transition-colors">
-                Личный кабинет
-              </a>
             </div>
           </div>
         )}
