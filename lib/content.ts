@@ -9,6 +9,7 @@ export type SiteContent = {
     image: string
   }
   features: string[]
+  customTexts?: { id: string; title: string; text: string }[]
   about?: {
     imageUrl: string
     title: string
@@ -49,6 +50,9 @@ export async function readContent(): Promise<SiteContent> {
         "Быстрый и надёжный сервис",
         "Поддержка 24/7",
         "Лучшие условия",
+      ],
+      customTexts: [
+        { id: "welcome", title: "Приветствие", text: "Добро пожаловать на наш сайт." },
       ],
       about: {
         imageUrl: "/placeholder.jpg",

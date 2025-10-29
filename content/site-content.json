@@ -10,6 +10,9 @@
     "Поддержка 24/7",
     "Лучшие условия"
   ],
+  "customTexts": [
+    { "id": "welcome", "title": "Приветствие", "text": "Добро пожаловать на наш сайт." }
+  ],
   "about": {
     "imageUrl": "/placeholder.jpg",
     "title": "О компании",
