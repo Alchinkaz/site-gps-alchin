@@ -17,7 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <section className="min-h-screen pt-20">
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
-        <div>
+        <div key={pathname} className="animate-fade">
           {children}
         </div>
         <aside className="bg-white border rounded-xl p-4 sticky top-20 h-max shadow-sm">

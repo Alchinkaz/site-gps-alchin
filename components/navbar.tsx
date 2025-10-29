@@ -54,9 +54,9 @@ export function Navbar() {
             <Button asChild size="sm">
               <a href="#contact">Получить консультацию</a>
             </Button>
-            <Button asChild size="sm" variant="outline">
-              <a href="/admin">Личный кабинет</a>
-            </Button>
+            <a href="/admin" className="inline-flex items-center justify-center h-8 px-3 py-2 rounded-md text-sm font-medium bg-yellow-400 text-black hover:bg-yellow-500 transition-colors">
+              Личный кабинет
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,11 +88,9 @@ export function Navbar() {
                   Получить консультацию
                 </a>
               </Button>
-              <Button asChild className="w-full" variant="outline">
-                <a href="/admin" onClick={() => setIsOpen(false)}>
-                  Личный кабинет
-                </a>
-              </Button>
+              <a href="/admin" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center w-full h-10 px-3 py-2 rounded-md text-sm font-medium bg-yellow-400 text-black hover:bg-yellow-500 transition-colors">
+                Личный кабинет
+              </a>
             </div>
           </div>
         )}
