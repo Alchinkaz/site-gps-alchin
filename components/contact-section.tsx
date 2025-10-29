@@ -71,7 +71,7 @@ export function ContactSection() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+7 (999) 123-45-67"
+                      placeholder="+77710797970"
                       required
                     />
                   </div>
@@ -125,8 +125,8 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Телефон</h3>
-                <a href="tel:+77760009505" className="text-muted-foreground hover:text-accent transition-colors block">
-                  +7 (776) 000-95-05 (Чингис)
+                <a href="tel:+77710797970" className="text-muted-foreground hover:text-accent transition-colors block">
+                  +77710797970
                 </a>
               </div>
             </div>
@@ -138,14 +138,14 @@ export function ContactSection() {
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold mb-1 text-foreground">ВКонтакте</h3>
+                <h3 className="font-semibold mb-1 text-foreground">Instagram</h3>
                 <a
-                  href="https://vk.com/tsuriev"
+                  href="https://instagram.com/alchin.ля"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
-                  @tsuriev
+                  @alchin.ля
                 </a>
               </div>
             </div>
@@ -158,8 +158,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Email</h3>
-                <p className="text-muted-foreground">info@gps-monitoring.ru</p>
-                <p className="text-muted-foreground">support@gps-monitoring.ru</p>
+                <p className="text-muted-foreground">info@alchin.kz</p>
               </div>
             </div>
 
@@ -171,7 +170,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Адрес</h3>
-                <p className="text-muted-foreground">г. Москва, ул. Примерная, д. 123, офис 456</p>
+                <p className="text-muted-foreground">Г.Актау 11микрорайон-27 дом.</p>
               </div>
             </div>
 

@@ -70,9 +70,17 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Контакты</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>+7 (495) 123-45-67</li>
-              <li>info@gps-monitoring.ru</li>
-              <li>г. Москва, ул. Примерная, 123</li>
+              <li>+77710797970</li>
+              <li>info@alchin.kz</li>
+              <li>Г.Актау 11микрорайон-27 дом.</li>
+              <li className="pt-2 font-semibold">Руководитель</li>
+              <li>Цуриев Ченгесхан Джамалайлович</li>
+              <li className="pt-2 font-semibold">Реквизиты</li>
+              <li>Р/с: KZ9496511F0008314291 KZT</li>
+              <li>КБе: 19</li>
+              <li>БИК банка: IRTYKZKA</li>
+              <li>Банк: Филиал АО ForteBank г.Актау</li>
+              <li className="pt-2">Instagram: @alchin.ля</li>
             </ul>
           </div>
         </div>

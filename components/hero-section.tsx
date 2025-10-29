@@ -60,7 +60,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <div className="font-semibold text-card-foreground">Офис компании</div>
-                    <div className="text-sm text-muted-foreground">г. Москва, ул. Примерная, 123</div>
+                    <div className="text-sm text-muted-foreground">Г.Актау 11микрорайон-27 дом.</div>
                   </div>
                 </div>
               </div>
