@@ -1,6 +1,8 @@
 import { Navigation } from "lucide-react"
+import { readContent } from "@/lib/content"
 
-export function Footer() {
+export async function Footer() {
+  const content = await readContent()
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
@@ -70,17 +72,17 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Контакты</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>+77710797970</li>
-              <li>info@alchin.kz</li>
-              <li>Г.Актау 11микрорайон-27 дом.</li>
+              <li>{content.contact.phone}</li>
+              <li>{content.contact.email}</li>
+              <li>{content.contact.address}</li>
               <li className="pt-2 font-semibold">Руководитель</li>
-              <li>Цуриев Ченгесхан Джамалайлович</li>
+              <li>{content.contact.director}</li>
               <li className="pt-2 font-semibold">Реквизиты</li>
-              <li>Р/с: KZ9496511F0008314291 KZT</li>
-              <li>КБе: 19</li>
-              <li>БИК банка: IRTYKZKA</li>
-              <li>Банк: Филиал АО ForteBank г.Актау</li>
-              <li className="pt-2">Instagram: @alchin.ля</li>
+              <li>Р/с: {content.contact.requisites.iban} {content.contact.requisites.currency}</li>
+              <li>КБе: {content.contact.requisites.kbe}</li>
+              <li>БИК банка: {content.contact.requisites.bik}</li>
+              <li>Банк: {content.contact.requisites.bankName}</li>
+              <li className="pt-2">Instagram: {content.contact.instagram}</li>
             </ul>
           </div>
         </div>

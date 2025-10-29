@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
 
@@ -16,6 +17,14 @@ export function ContactSection() {
     email: "",
     message: "",
   })
+  const [contactInfo, setContactInfo] = useState<{ phone: string; email: string; address: string } | null>(null)
+
+  useEffect(() => {
+    fetch("/api/public/content")
+      .then((r) => r.json())
+      .then((c) => setContactInfo({ phone: c.contact.phone, email: c.contact.email, address: c.contact.address }))
+      .catch(() => {})
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -71,7 +80,7 @@ export function ContactSection() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+77710797970"
+                      placeholder={contactInfo?.phone || "+77710797970"}
                       required
                     />
                   </div>
@@ -125,8 +134,8 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Телефон</h3>
-                <a href="tel:+77710797970" className="text-muted-foreground hover:text-accent transition-colors block">
-                  +77710797970
+                <a href={`tel:${contactInfo?.phone || "+77710797970"}`} className="text-muted-foreground hover:text-accent transition-colors block">
+                  {contactInfo?.phone || "+77710797970"}
                 </a>
               </div>
             </div>
@@ -158,7 +167,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Email</h3>
-                <p className="text-muted-foreground">info@alchin.kz</p>
+                <p className="text-muted-foreground">{contactInfo?.email || "info@alchin.kz"}</p>
               </div>
             </div>
 
@@ -170,7 +179,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1 text-foreground">Адрес</h3>
-                <p className="text-muted-foreground">Г.Актау 11микрорайон-27 дом.</p>
+                <p className="text-muted-foreground">{contactInfo?.address || "Г.Актау 11микрорайон-27 дом."}</p>
               </div>
             </div>
 

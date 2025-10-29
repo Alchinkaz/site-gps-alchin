@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "headline": "Профессиональные системы GPS мониторинга транспорта",
+    "subheadline": "Установка и настройка современных систем спутникового мониторинга для контроля автотранспорта.",
+    "officeAddress": "Г.Актау 11микрорайон-27 дом.",
+    "image": "/interactive-gps-tracking-map-with-vehicle-markers-.jpg"
+  },
+  "features": [
+    "Быстрый и надёжный сервис",
+    "Поддержка 24/7",
+    "Лучшие условия"
+  ],
+  "about": {
+    "imageUrl": "/placeholder.jpg",
+    "title": "О компании",
+    "description": "Мы устанавливаем и обслуживаем системы GPS мониторинга."
+  },
+  "contact": {
+    "phone": "+77710797970",
+    "email": "info@alchin.kz",
+    "address": "Г.Актау 11микрорайон-27 дом.",
+    "instagram": "@alchin.ля",
+    "director": "Цуриев Ченгесхан Джамалайлович",
+    "requisites": {
+      "iban": "KZ9496511F0008314291",
+      "currency": "KZT",
+      "kbe": "19",
+      "bik": "IRTYKZKA",
+      "bankName": "Филиал АО ForteBank г.Актау"
+    }
+  }
+}
+
+

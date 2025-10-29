@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button"
+import { readContent } from "@/lib/content"
 import { MapPin, ArrowRight } from "lucide-react"
 
-export function HeroSection() {
+export async function HeroSection() {
+  const content = await readContent()
   return (
     <section id="about" className="relative min-h-screen flex items-center pt-16 md:pt-20">
       <div className="container mx-auto px-4">
@@ -13,12 +15,11 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
-              Профессиональные системы GPS мониторинга транспорта
+              {content.hero.headline}
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Установка и настройка современных систем спутникового мониторинга для контроля автотранспорта. Полный
-              контроль маршрутов, расхода топлива и безопасности вашего автопарка в режиме реального времени.
+              {content.hero.subheadline}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -51,7 +52,7 @@ export function HeroSection() {
 
           <div className="relative">
             <div className="aspect-square rounded-2xl bg-secondary overflow-hidden border border-border shadow-2xl">
-              <img src="/interactive-gps-tracking-map-with-vehicle-markers-.jpg" alt="GPS мониторинг карта" className="w-full h-full object-cover" />
+              <img src={content.hero.image} alt="GPS мониторинг карта" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 bg-card/95 backdrop-blur-sm rounded-xl p-4 border border-border">
                 <div className="flex items-center gap-3">
@@ -60,7 +61,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <div className="font-semibold text-card-foreground">Офис компании</div>
-                    <div className="text-sm text-muted-foreground">Г.Актау 11микрорайон-27 дом.</div>
+                    <div className="text-sm text-muted-foreground">{content.hero.officeAddress}</div>
                   </div>
                 </div>
               </div>
