@@ -54,6 +54,9 @@ export function Navbar() {
             <Button asChild size="sm">
               <a href="#contact">Получить консультацию</a>
             </Button>
+            <Button asChild size="sm" variant="outline">
+              <a href="/admin">Личный кабинет</a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -83,6 +86,11 @@ export function Navbar() {
               <Button asChild className="w-full">
                 <a href="#contact" onClick={() => setIsOpen(false)}>
                   Получить консультацию
+                </a>
+              </Button>
+              <Button asChild className="w-full" variant="outline">
+                <a href="/admin" onClick={() => setIsOpen(false)}>
+                  Личный кабинет
                 </a>
               </Button>
             </div>
