@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Home, ListChecks, Building2, Phone, FileText, LogOut, User } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -17,6 +18,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <section className="min-h-screen pt-20">
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
+        <div className="flex items-center gap-3 mb-2">
+          <ThemeToggle />
+        </div>
         <div key={pathname} className="animate-fade">
           {children}
         </div>
