@@ -4,18 +4,20 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Home, ListChecks, Building2, Phone, FileText } from "lucide-react"
 
 type Content = import("@/lib/content").SiteContent
 
 export default function AdminPage() {
   const [content, setContent] = useState<Content | null>(null)
   const [saving, setSaving] = useState(false)
+  const [selected, setSelected] = useState<string>("hero")
   const sections = useMemo(() => ([
-    { id: "hero", label: "Главная" },
-    { id: "features", label: "Преимущества" },
-    { id: "about", label: "О компании" },
-    { id: "contacts", label: "Контакты и реквизиты" },
-    { id: "texts", label: "Тексты" },
+    { id: "hero", label: "Главная", icon: Home },
+    { id: "features", label: "Преимущества", icon: ListChecks },
+    { id: "about", label: "О компании", icon: Building2 },
+    { id: "contacts", label: "Контакты", icon: Phone },
+    { id: "texts", label: "Тексты", icon: FileText },
   ]), [])
   const refs = useRef<Record<string, HTMLDivElement | null>>({})
 
@@ -65,21 +67,37 @@ export default function AdminPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6">
         {/* Sidebar */}
-        <aside className="md:sticky md:top-20 h-max border rounded-xl p-4">
-          <div className="font-semibold mb-3">Разделы</div>
+        <aside className="md:sticky md:top-20 h-max rounded-xl p-4 bg-zinc-950 border shadow-sm">
+          <div className="font-semibold mb-3 text-zinc-200">Админ панель</div>
           <div className="flex md:flex-col gap-2">
-            {sections.map((s) => (
-              <Button key={s.id} variant="outline" size="sm" onClick={() => refs.current[s.id]?.scrollIntoView({ behavior: "smooth", block: "start" })}>
-                {s.label}
-              </Button>
-            ))}
+            {sections.map((s) => {
+              const Icon = s.icon
+              const isActive = selected === s.id
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    setSelected(s.id)
+                    refs.current[s.id]?.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }}
+                  className={
+                    `flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-left ` +
+                    (isActive
+                      ? "bg-emerald-600 text-white shadow"
+                      : "bg-zinc-900 hover:bg-zinc-800 text-zinc-300")
+                  }
+                >
+                  <Icon className="h-4 w-4" /> {s.label}
+                </button>
+              )
+            })}
           </div>
         </aside>
 
         {/* Main content */}
         <div className="grid gap-6">
         {/* Главная */}
-        <div ref={(el) => (refs.current["hero"] = el)} className="border rounded-xl p-6">
+        <div ref={(el) => (refs.current["hero"] = el)} className="border rounded-xl p-6 bg-card shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Главная страница</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
@@ -102,7 +120,7 @@ export default function AdminPage() {
         </div>
 
         {/* Список преимуществ (features) */}
-        <div ref={(el) => (refs.current["features"] = el)} className="border rounded-xl p-6">
+        <div ref={(el) => (refs.current["features"] = el)} className="border rounded-xl p-6 bg-card shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Список преимуществ</h2>
           <div className="space-y-3">
             {content.features.map((item, idx) => (
@@ -137,7 +155,7 @@ export default function AdminPage() {
         </div>
 
         {/* О компании */}
-        <div ref={(el) => (refs.current["about"] = el)} className="border rounded-xl p-6">
+        <div ref={(el) => (refs.current["about"] = el)} className="border rounded-xl p-6 bg-card shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Секция о компании</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
@@ -156,7 +174,7 @@ export default function AdminPage() {
         </div>
 
         {/* Контакты и реквизиты */}
-        <div ref={(el) => (refs.current["contacts"] = el)} className="border rounded-xl p-6">
+        <div ref={(el) => (refs.current["contacts"] = el)} className="border rounded-xl p-6 bg-card shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Контакты и реквизиты</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
@@ -203,7 +221,7 @@ export default function AdminPage() {
         </div>
 
         {/* Произвольные тексты */}
-        <div ref={(el) => (refs.current["texts"] = el)} className="border rounded-xl p-6">
+        <div ref={(el) => (refs.current["texts"] = el)} className="border rounded-xl p-6 bg-card shadow-sm">
           <h2 className="text-xl font-semibold mb-4">Произвольные тексты</h2>
           <div className="space-y-4">
             {(content.customTexts || []).map((t, idx) => (
